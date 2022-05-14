@@ -7,12 +7,16 @@ spring:
   application:
     name: information
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     nacos:
       server-addr: 192.168.52.17:8847
       discovery:
         username: line
         password: ycs19930606...   # 命名空间 隔离服务
-        ephemeral: false # 永久实例, 挂机也不会被删除
+        ephemeral: false # 永久实例, 挂机也不会被删除wifi
+
         namespace: yom-test
 #        weight:  1 #权重, 负载均衡使用
 #        group: DEFAULT_GROUP  默认的分组

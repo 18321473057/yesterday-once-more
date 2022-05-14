@@ -1,7 +1,6 @@
 package org.line.core.test.controller;
 
 import com.github.pagehelper.Page;
-import org.line.core.domain.IdCardMsgDto;
 import org.line.core.domain.RemoteReqDto;
 import org.line.core.domain.RemoteResponseDto;
 import org.line.core.exception.BusinessException;
@@ -9,12 +8,13 @@ import org.line.core.exception.RemoteBusinessException;
 import org.line.core.resp.AjaxResponse;
 import org.line.core.resp.PageResponse;
 import org.line.core.resp.RemoteResponse;
+import org.line.core.test.po.ValidPo;
 import org.line.core.test.service.ICoreWebReqTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.rmi.Remote;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -119,6 +119,14 @@ public class CoreWebReqTestController {
     public Object restpost(@RequestBody RemoteReqDto dto) {
         RemoteResponseDto msg = coreWebReqTestService.sendRemotePost(dto);
         return msg.getResult();
+    }
+
+
+    @PostMapping("/cc")
+    @ResponseBody
+    public Object cc(@RequestBody @Valid ValidPo dto) {
+        System.out.println(dto);
+        return dto;
     }
 
 
