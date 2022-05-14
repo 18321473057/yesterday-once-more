@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>core-io</module>
+        <module>information</module>
+    </modules>
+
+    <parent>
+        <groupId>org.line.core</groupId>
+        <artifactId>parent-pom</artifactId>
+        <version>1.2.0.SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.line.core</groupId>
+    <artifactId>yesterday-once-more</artifactId>
+    <version>1.0.SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>yom</name>
+    <description>昨日重现,文件保存,尤其是照片和视频的保存;
+        演示微服务架构的使用和其他技术点的使用方式记录; 沉淀技术点
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.line.core</groupId>
+            <artifactId>line-core-web</artifactId>
+            <version>1.2.0.SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.line.core</groupId>
+            <artifactId>line-core-nacos</artifactId>
+            <version>1.2.0.SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.16</version>
+        </dependency>
+    </dependencies>
+
+</project>

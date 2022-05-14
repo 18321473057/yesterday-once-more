@@ -1,0 +1,29 @@
+# 启动服务相关配置
+server:
+  port: 8801
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: information
+  cloud:
+    nacos:
+      server-addr: 192.168.52.17:8847
+      discovery:
+        username: line
+        password: ycs19930606...   # 命名空间 隔离服务
+        ephemeral: false # 永久实例, 挂机也不会被删除
+        namespace: yom-test
+#        weight:  1 #权重, 负载均衡使用
+#        group: DEFAULT_GROUP  默认的分组
+
+core-io:
+  ribbon:
+    #nacos 实现的权重
+    NFLoadBalancerRuleClassName: org.line.core.rule.ILineRule
+
+##默认懒加载 , 立即加载
+ribbon:
+  eager-load:
+    clients: core-io
+    enabled: true
