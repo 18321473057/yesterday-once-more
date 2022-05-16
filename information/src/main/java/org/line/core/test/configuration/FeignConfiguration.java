@@ -1,0 +1,29 @@
+package org.line.core.test.configuration;
+
+import feign.Logger;
+import feign.Request;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+
+/**
+ * @Author: yangcs
+ * @Date: 2022/5/14 16:42
+ * @Description:  这里是feign的全局配置
+ */
+@Configuration
+public class FeignConfiguration {
+
+//    // feign 日志配置
+//    @Bean
+//    public Logger.Level feignLoggerLevel(){
+//        return Logger.Level.FULL;
+//    }
+//
+//    //超时时间配置
+//    @Bean
+//    public Request.Options optins(){
+//        return new Request.Options(5000,10000);
+//    }
+
+}

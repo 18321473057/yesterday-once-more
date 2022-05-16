@@ -2,6 +2,7 @@ package org.line.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 //scanBasePackages="com.line" 自动装配代码 只需要被包扫描到
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.line"})
 //@RibbonClients(value = {@RibbonClient(name = "core-io",configuration = RuleSelectConfiguration.class)})
+@EnableFeignClients //开启feign
 public class InformationApplication {
     public static void main(String[] args) {
         SpringApplication.run(InformationApplication.class, args);

@@ -8,6 +8,7 @@ import org.line.core.exception.RemoteBusinessException;
 import org.line.core.resp.AjaxResponse;
 import org.line.core.resp.PageResponse;
 import org.line.core.resp.RemoteResponse;
+import org.line.core.test.feign.FeignService;
 import org.line.core.test.po.ValidPo;
 import org.line.core.test.service.ICoreWebReqTestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/test")
 public class CoreWebReqTestController {
+
+    @Autowired
+    private FeignService feignService;
 
     @Autowired
     private ICoreWebReqTestService coreWebReqTestService;
@@ -110,14 +114,16 @@ public class CoreWebReqTestController {
     @GetMapping("/rest/get")
     @RemoteResponse
     public String restget(@RequestParam String name) {
-        String msg = coreWebReqTestService.sendRemoteMsg("我来了");
+//        String msg = coreWebReqTestService.sendRemoteMsg("我来了");
+        String msg = feignService.sendRemoteMsg("我来了");
         return msg;
     }
 
     @PostMapping("/rest/post")
     @RemoteResponse
     public Object restpost(@RequestBody RemoteReqDto dto) {
-        RemoteResponseDto msg = coreWebReqTestService.sendRemotePost(dto);
+//        RemoteResponseDto msg = coreWebReqTestService.sendRemotePost(dto);
+        RemoteResponseDto msg = feignService.sendRemotePost(dto);
         return msg.getResult();
     }
 
