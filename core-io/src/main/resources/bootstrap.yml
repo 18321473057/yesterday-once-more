@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: core-io
+  cloud:
+    nacos:
+      server-addr: 192.168.52.17:8847
+      username: line
+      password: ycs19930606...
+      config:
+        namespace: yom-test
