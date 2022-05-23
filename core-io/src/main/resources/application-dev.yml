@@ -1,15 +1,15 @@
-# 启动服务相关配置
-server:
-  port: 8811
-  tomcat:
-    uri-encoding: UTF-8
-spring:
-  application:
-    name: core-io
-  cloud:
-    nacos:
-      server-addr: 192.168.52.17:8847
-      discovery:
-        username: line
-        password: ycs19930606...
-        namespace: yom-test  # 命名空间 隔离服务  注意是Id 而不是名字
+## 启动服务相关配置
+#server:
+#  port: 8811
+#  tomcat:
+#    uri-encoding: UTF-8
+#spring:
+#  application:
+#    name: core-io
+#  cloud:
+#    nacos:
+#      server-addr: 192.168.52.17:8847
+#      discovery:
+#        username: line
+#        password: ycs19930606...
+#        namespace: yom-test  # 命名空间 隔离服务  注意是Id 而不是名字

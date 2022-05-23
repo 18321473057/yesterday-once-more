@@ -17,6 +17,7 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("/test/cio")
 public class CoreIoTestController {
+
     @Value("${server.port}")
     private String port;
 

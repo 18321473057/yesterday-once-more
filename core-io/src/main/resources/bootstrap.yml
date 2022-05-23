@@ -1,10 +1,11 @@
 spring:
   application:
-    name: core-io
+    name: org.line.core.core-io
   cloud:
     nacos:
       server-addr: 192.168.52.17:8847
       username: line
       password: ycs19930606...
       config:
+        file-extension: yml
         namespace: yom-test
