@@ -1,6 +1,6 @@
 package org.line.core.configuration;
 
-import org.line.core.feign.FeignSentinelServiceFallback;
+import org.line.core.feign.FeignSentinelServiceFallbackFactory;
 import org.line.core.sentinel.SentinelExceptionHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,10 +17,11 @@ public class SentinelConfiguration {
     public SentinelExceptionHandler sentinelExceptionHandler() {
         return new SentinelExceptionHandler();
     }
+
     //自定义降级处理
     @Bean
-    public FeignSentinelServiceFallback feignSentinelServiceFallback() {
-        return new FeignSentinelServiceFallback();
+    public FeignSentinelServiceFallbackFactory feignSentinelServiceFallbackFactory() {
+        return new FeignSentinelServiceFallbackFactory();
     }
 
 }

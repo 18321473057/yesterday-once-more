@@ -38,8 +38,8 @@ public class CoreIoTestController {
     }
 
     @GetMapping("/e")
-    @RemoteResponse
-    public void e() {
+    public String e() {
       int i= 0/0;
+      return "0/0";
     }
 }

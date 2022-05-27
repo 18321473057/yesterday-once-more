@@ -1,21 +1,21 @@
-#spring:
-##  profiles:
-##    active: dev
-#  application:
-#    name: org.line.core.information    # 默认使用服务名 匹配Data ID 的配置
-#  cloud:
-#    nacos:
-#      server-addr: 192.168.52.17:8847
-#      username: line               # 用户名密码
-#      password: ycs19930606...
-#      config:
-#        file-extension: yml
-#        namespace: yom-test      # 一定要指定好命名空间
-#        shared-configs:
-#          -  data-id: org.line.core.information-test.yml
-#             refresh: true
-##        extension-configs[0]:
-##          data-id: org.line.core.information-test.yml
-##          refresh: true
-#
-##    # 优先级  profiles >  默认配置文件 >extension-configs(下标越大,优先级越高, 靠后的会覆盖) > shared-configs
+spring:
+#  profiles:
+#    active: dev
+  application:
+    name: org.line.core.information    # 默认使用服务名 匹配Data ID 的配置
+  cloud:
+    nacos:
+      server-addr: 192.168.52.17:8847
+      username: line               # 用户名密码
+      password: ycs19930606...
+      config:
+        file-extension: yml
+        namespace: yom-test      # 一定要指定好命名空间
+        shared-configs:
+          -  data-id: org.line.core.information-test.yml
+             refresh: true
+#        extension-configs[0]:
+#          data-id: org.line.core.information-test.yml
+#          refresh: true
+
+#    # 优先级  profiles >  默认配置文件 >extension-configs(下标越大,优先级越高, 靠后的会覆盖) > shared-configs

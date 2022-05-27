@@ -1,61 +1,61 @@
-uu: yc
-# 启动服务相关配置
-server:
-  port: 8801
-  tomcat:
-    uri-encoding: UTF-8
-spring:
-  application:
-    name: information
-  cloud:
-    sentinel:
-      #默认将调用链路收敛; 设置false 不收敛
-      web-context-unify: false
-      transport:
-        #dashboard: 192.168.52.101:8858
-        dashboard: 192.168.52.17:8858
-        #
-        clientIp: 192.168.52.101
-    loadbalancer:
-      ribbon:
-        enabled: false
-    nacos:
-      server-addr: 192.168.52.17:8847
-      discovery:
-        username: line
-        password: ycs19930606...   # 命名空间 隔离服务
-        ephemeral: false # 永久实例, 挂机也不会被删除wifi
-
-        namespace: yom-test
-#        weight:  1 #权重, 负载均衡使用
-#        group: DEFAULT_GROUP  默认的分组
-
-core-io:
-  ribbon:
-    #nacos 实现的权重
-    NFLoadBalancerRuleClassName: org.line.core.rule.ILineRule
-
-##默认懒加载 , 立即加载
-ribbon:
-  eager-load:
-    clients: core-io
-    enabled: true
-
-
-#    springboot日志级别默认info, feign的日志级别是debug ; 默认不会输出
-logging:
-  level:
-    org.line.core.test.feign: debug
-feign:
-  client:
-    config:
-      core-io:  # 对应服务
-        loggerLevel: BASIC   #日志输出类型
-        #        contract: feign.Contract.Default  # 设置默认契约(还原原生配置)
-        # 默认2s
-        connectTimeout: 5000
-        # 默认5s
-        readTimeout: 10000
-        requestInterceptors[0]: org.line.core.feign.interceptor.LogFeignInterceptor
-  sentinel:
-    enabled: true # 添加feign对sentinel的支持
+#uu: yc
+## 启动服务相关配置
+#server:
+#  port: 8801
+#  tomcat:
+#    uri-encoding: UTF-8
+#spring:
+#  application:
+#    name: information
+#  cloud:
+#    sentinel:
+#      #默认将调用链路收敛; 设置false 不收敛
+#      web-context-unify: false
+#      transport:
+#        #dashboard: 192.168.52.101:8858
+#        dashboard: 192.168.52.17:8858
+#        #
+#        clientIp: 192.168.52.101
+#    loadbalancer:
+#      ribbon:
+#        enabled: false
+#    nacos:
+#      server-addr: 192.168.52.17:8847
+#      discovery:
+#        username: line
+#        password: ycs19930606...   # 命名空间 隔离服务
+#        ephemeral: false # 永久实例, 挂机也不会被删除wifi
+#
+#        namespace: yom-test
+##        weight:  1 #权重, 负载均衡使用
+##        group: DEFAULT_GROUP  默认的分组
+#
+#core-io:
+#  ribbon:
+#    #nacos 实现的权重
+#    NFLoadBalancerRuleClassName: org.line.core.rule.ILineRule
+#
+###默认懒加载 , 立即加载
+#ribbon:
+#  eager-load:
+#    clients: core-io
+#    enabled: true
+#
+#
+##    springboot日志级别默认info, feign的日志级别是debug ; 默认不会输出
+#logging:
+#  level:
+#    org.line.core.test.feign: debug
+#feign:
+#  client:
+#    config:
+#      core-io:  # 对应服务
+#        loggerLevel: BASIC   #日志输出类型
+#        #        contract: feign.Contract.Default  # 设置默认契约(还原原生配置)
+#        # 默认2s
+#        connectTimeout: 5000
+#        # 默认5s
+#        readTimeout: 10000
+#        requestInterceptors[0]: org.line.core.feign.interceptor.LogFeignInterceptor
+#  sentinel:
+#    enabled: true # 添加feign对sentinel的支持

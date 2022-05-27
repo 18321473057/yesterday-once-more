@@ -88,10 +88,9 @@ public class SentinelController {
     }
 
     @RequestMapping("/e")
-    @AjaxResponse
-    public String e(@RequestParam String name) throws InterruptedException {
-        feignService.err();
-        return "!!-444-!!"+name;
+    public String e(@RequestParam String name) {
+       String m =  feignService.err();
+       return m;
     }
 
 
