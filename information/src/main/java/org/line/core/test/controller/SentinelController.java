@@ -8,6 +8,8 @@ import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import org.line.core.resp.AjaxResponse;
+import org.line.core.test.feign.FeignService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +27,8 @@ import java.util.List;
 @RequestMapping("/test")
 public class SentinelController {
 
-
+    @Autowired
+    private FeignService feignService;
 
 //    //编码
 //    @RequestMapping("/sentinel")
@@ -77,6 +80,19 @@ public class SentinelController {
         return "!!-333-!!"+name;
     }
 
+
+    @RequestMapping("/sentinel4")
+    @AjaxResponse
+    public String sentinel4(@RequestParam String name) throws InterruptedException {
+        return "!!-444-!!"+name;
+    }
+
+    @RequestMapping("/e")
+    @AjaxResponse
+    public String e(@RequestParam String name) throws InterruptedException {
+        feignService.err();
+        return "!!-444-!!"+name;
+    }
 
 
 //    @PostConstruct

@@ -36,4 +36,10 @@ public class CoreIoTestController {
         map.put("vv", "ww");
         return map;
     }
+
+    @GetMapping("/e")
+    @RemoteResponse
+    public void e() {
+      int i= 0/0;
+    }
 }

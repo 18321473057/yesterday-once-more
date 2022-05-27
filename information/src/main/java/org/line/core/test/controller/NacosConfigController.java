@@ -19,15 +19,11 @@ public class NacosConfigController {
 
     @Value("${uu}")
     private String pp;
-    @Value("${line.name}")
-    private String pa;
 
-    @Value("${line.namea}")
-    private String paa;
 
     @RequestMapping("/config")
     @AjaxResponse
     public String cong() {
-        return pp+pa+"---"+paa;
+        return pp;
     }
 }

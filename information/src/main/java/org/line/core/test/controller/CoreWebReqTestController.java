@@ -131,8 +131,7 @@ public class CoreWebReqTestController {
     @PostMapping("/cc")
     @ResponseBody
     public Object cc(@RequestBody @Valid ValidPo dto) {
-        System.out.println(dto);
-        return dto;
+        throw new BusinessException("");
     }
 
 

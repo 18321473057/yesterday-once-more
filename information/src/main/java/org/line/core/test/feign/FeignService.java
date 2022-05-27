@@ -18,4 +18,7 @@ public interface FeignService {
     String sendRemoteMsg(@RequestParam String msg);
     @GetMapping("/cio/post")
     RemoteResponseDto sendRemotePost(@RequestBody RemoteReqDto<Object> reqDto);
+
+    @GetMapping("/cio/e")
+    void err();
 }
