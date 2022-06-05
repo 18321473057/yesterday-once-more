@@ -1,22 +1,14 @@
 package org.line.core.test.controller;
 
-import com.alibaba.csp.sentinel.Entry;
-import com.alibaba.csp.sentinel.SphU;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
-import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import org.line.core.resp.AjaxResponse;
 import org.line.core.test.feign.FeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author: yangcs
@@ -30,7 +22,7 @@ public class SentinelController {
     @Autowired
     private FeignService feignService;
 
-//    //编码
+    //    //编码
 //    @RequestMapping("/sentinel")
 //    @AjaxResponse
 //    public String sentinel() {
@@ -56,10 +48,9 @@ public class SentinelController {
 //            return "!!--!!"+name;
 //    }
 //
-    public  String doblockHandler(String name,BlockException e) {
-        return "--doblockHandler--"+name+e.getMessage();
+    public String doblockHandler(String name, BlockException e) {
+        return "--doblockHandler--" + name + e.getMessage();
     }
-
 
 
     //远程sentinel 配置
@@ -67,30 +58,37 @@ public class SentinelController {
     @AjaxResponse
     @SentinelResource(value = "sentinel2", blockHandler = "doblockHandler")
     public String sentinel2(@RequestParam String name) {
-        return "!!-222-!!"+name;
+        return "!!-222-!!" + name;
     }
-
 
 
     //远程sentinel 配置
     @RequestMapping("/sentinel3")
     @AjaxResponse
-    @SentinelResource(value = "sentinel3" )
+    @SentinelResource(value = "sentinel3")
     public String sentinel3(@RequestParam String name) throws InterruptedException {
-        return "!!-333-!!"+name;
+        return "!!-333-!!" + name;
     }
 
 
     @RequestMapping("/sentinel4")
     @AjaxResponse
     public String sentinel4(@RequestParam String name) throws InterruptedException {
-        return "!!-444-!!"+name;
+        return "!!-444-!!" + name;
     }
 
     @RequestMapping("/e")
     public String e(@RequestParam String name) {
-       String m =  feignService.err();
-       return m;
+        String m = feignService.err();
+        return m;
+    }
+
+
+    @RequestMapping("/paramValid")
+//    @AjaxResponse
+    @SentinelResource(value = "paramValid")
+    public String paramValid(@RequestParam String name) {
+        return "paramValid = " + name;
     }
 
 

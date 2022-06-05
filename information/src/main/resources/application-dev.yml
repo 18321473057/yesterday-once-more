@@ -6,16 +6,25 @@
 #    uri-encoding: UTF-8
 #spring:
 #  application:
-#    name: information
+#    name: org.line.core.information
 #  cloud:
 #    sentinel:
 #      #默认将调用链路收敛; 设置false 不收敛
 #      web-context-unify: false
-#      transport:
+#      transport:  # 管理平台配置
 #        #dashboard: 192.168.52.101:8858
 #        dashboard: 192.168.52.17:8858
 #        #
 #        clientIp: 192.168.52.101
+#      datasource:
+#        flow-rule:
+#          nacos:
+#            server-addr: 192.168.52.17:8847
+#            username: line
+#            password: ycs19930606...
+#            namespace: yom-test
+#            dataId: org.line.core.information.flow-rule
+#            rule-type: flow
 #    loadbalancer:
 #      ribbon:
 #        enabled: false
@@ -24,8 +33,8 @@
 #      discovery:
 #        username: line
 #        password: ycs19930606...   # 命名空间 隔离服务
-#        ephemeral: false # 永久实例, 挂机也不会被删除wifi
-#
+#        # ephemeral: false # 永久实例, 挂机也不会被删除
+#        ephemeral: true
 #        namespace: yom-test
 ##        weight:  1 #权重, 负载均衡使用
 ##        group: DEFAULT_GROUP  默认的分组
